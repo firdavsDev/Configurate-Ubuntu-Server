@@ -15,7 +15,7 @@ More: https://www.digitalocean.com/community/tutorials/how-to-set-up-django-with
         [Install]
         WantedBy=multi-user.target
 
-  * `pip install gunicorn`
+  * venv | `pip install gunicorn`
   * `sudo systemctl enable {name}.service`
   * `sudo systemctl start {name}.service`
   * `sudo systemctl status {name}.service`
