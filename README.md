@@ -1,20 +1,19 @@
 # Deploy django project to Digital Ocean
 
   * nano etc/systemd/system/{name}.service
-  * In tc/systemd/system/{name}.service file write 
-    <br>
-"
-      [Unit]
-      Description={some info about project}
-      After=multi-user.target
-      [Service]
-      Type=simple
-      Restart=on-failure
-      WorkingDirectory=/var/www/{project_path}
-      ExecStart=/var/www/{project_path}/{venv}/bin/gunicorn -b 0.0.0.0:8001 {file}.wsgi
-      [Install]
-      WantedBy=multi-user.target
-"
+  * In etc/systemd/system/{name}.service file write 
+  "
+    [Unit]
+    Description={some info about project}
+    After=multi-user.target
+    [Service]
+    Type=simple
+    Restart=on-failure
+    WorkingDirectory=/var/www/{project_path}
+    ExecStart=/var/www/{project_path}/{venv}/bin/gunicorn -b 0.0.0.0:8001 {file}.wsgi
+    [Install]
+    WantedBy=multi-user.target
+  "
    
   * pip install gunicorn
   * sudo systemctl enable {name}.service
@@ -39,6 +38,7 @@
             include         proxy_params;
             proxy_pass      http://localhost:8001;
         }
-       }"
+       }
+    "
     * sudo ln -s /etc/nginx/sites-available/{name} /etc/nginx/sites-enabled
     * sudo systemctl restart nginx.service
