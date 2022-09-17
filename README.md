@@ -42,5 +42,5 @@ Web: https://www.digitalocean.com/community/tutorials/how-to-set-up-django-with-
            }
         }
      
-    * `sudo ln -s /etc/nginx/sites-available/{name} /etc/nginx/sites-enabled`
-    * `sudo systemctl restart nginx.service`
+   * `sudo ln -s /etc/nginx/sites-available/{name} /etc/nginx/sites-enabled`
+   * `sudo systemctl restart nginx.service`
