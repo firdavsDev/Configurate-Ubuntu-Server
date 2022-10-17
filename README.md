@@ -44,3 +44,11 @@ More: https://www.digitalocean.com/community/tutorials/how-to-set-up-django-with
      
    * `sudo ln -s /etc/nginx/sites-available/{name} /etc/nginx/sites-enabled`
    * `sudo systemctl restart nginx.service`
+
+
+Log
+ * `sudo journalctl -u gunicorn`
+ * `sudo systemctl status gunicorn`
+ * `sudo nginx -t`
+ * `sudo tail -F /var/log/nginx/error.log`
+
