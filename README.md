@@ -19,7 +19,7 @@ More: https://www.digitalocean.com/community/tutorials/how-to-set-up-django-with
   * `sudo systemctl enable {name}.service`
   * `sudo systemctl start {name}.service`
   * `sudo systemctl status {name}.service`
-  * `nano etc/nginx/site-available/ {name_file}`
+  * `nano etc/nginx/sites-available/ {name_file}`
   * Wrire code in etc/nginx/sites-available/ {name_file}
      
         server {
