@@ -1,4 +1,4 @@
-# Deploy Django project to Ubuntu Servers
+# Configuration Ubuntu Servers | Django 
 <br>
 
   ### We need to open up our firewall to normal traffic on port 80
