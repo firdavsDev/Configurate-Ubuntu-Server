@@ -1,8 +1,12 @@
-# Deploy Django project to Digital Ocean
+# Deploy Django project to Ubuntu Servers
 More: https://www.digitalocean.com/community/tutorials/how-to-set-up-django-with-postgres-nginx-and-gunicorn-on-ubuntu-16-04
 <br>
-  * `nano etc/systemd/system/{name}.service`
-  * In etc/systemd/system/{name_file}.service file write:
+<br>
+  ### We need to open up our firewall to normal traffic on port 80
+  * `sudo ufw allow 'Nginx Full'` 
+  ### Create gunicorn service file & start
+  * `sudo nano etc/systemd/system/{name}.service`
+  * Wrire code in the etc/systemd/system/{name_file}.service:
         
         [Unit]
         Description={some info about project}
@@ -19,8 +23,9 @@ More: https://www.digitalocean.com/community/tutorials/how-to-set-up-django-with
   * `sudo systemctl enable {name}.service`
   * `sudo systemctl start {name}.service`
   * `sudo systemctl status {name}.service`
-  * `nano etc/nginx/sites-available/ {name_file}`
-  * Wrire code in etc/nginx/sites-available/ {name_file}
+  ### Create nginx file & start
+  * `sudo nano etc/nginx/sites-available/{name_file}`
+  * Wrire code in the etc/nginx/sites-available/{name_file}
      
         server {
      
@@ -45,8 +50,19 @@ More: https://www.digitalocean.com/community/tutorials/how-to-set-up-django-with
    * `sudo ln -s /etc/nginx/sites-available/{name} /etc/nginx/sites-enabled`
    * `sudo systemctl restart nginx.service`
 
+If you change gunicorn systemd service file, reload the daemon and restart the process by typing:
 
-Log
+ * `sudo systemctl daemon-reload`
+ * `sudo systemctl restart gunicorn`
+ 
+<br>
+
+If you change the Nginx server block configuration, test the configuration and then Nginx by typing:
+
+ * `sudo nginx -t && sudo systemctl restart nginx`
+
+Checking Logs
+
  * `sudo journalctl -u gunicorn`
  * `sudo systemctl status gunicorn`
  * `sudo nginx -t`
