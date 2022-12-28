@@ -31,6 +31,8 @@
            server_name {ip_addres};
            listen 80;
            client_max_body_size 20M;
+           keepalive_timeout 5;
+           client_max_body_size 4G;
 
            location /static/ {
                root /var/www/{project_path}/;
@@ -48,6 +50,9 @@
            location / {
                include         proxy_params;
                proxy_pass      http://localhost:8001;
+               proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+               proxy_set_header Host $http_host;
+               proxy_redirect off;
            }
         }
      
