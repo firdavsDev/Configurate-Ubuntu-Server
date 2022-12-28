@@ -42,8 +42,8 @@
                root /var/www/{project_path}/;
            }
            
-            access_log /var/www/logs/nginx-access.log;
-            error_log /var/www/logs/nginx-error.log;
+            access_log /var/logs/nginx-access.log;
+            error_log /var/logs/nginx-error.log;
 
            location / {
                include         proxy_params;
