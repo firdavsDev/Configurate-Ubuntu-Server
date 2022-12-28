@@ -35,10 +35,15 @@
            location /static/ {
                root /var/www/{project_path}/;
            }
-
+           
+           location = /favicon.ico { access_log off; log_not_found off; }
+           
            location /media/ {
                root /var/www/{project_path}/;
            }
+           
+            access_log /var/www/logs/nginx-access.log;
+            error_log /var/www/logs/nginx-error.log;
 
            location / {
                include         proxy_params;
@@ -47,6 +52,7 @@
         }
      
    *     sudo ln -s /etc/nginx/sites-available/{name} /etc/nginx/sites-enabled
+   *     sudo nginx -t
    *     sudo systemctl restart nginx.service
 
 ### If you change gunicorn systemd service file, reload the daemon and restart the process by typing:
@@ -63,7 +69,7 @@
 
  *     sudo journalctl -u gunicorn
  *     sudo systemctl status gunicorn
- *     sudo nginx -t
+
 
 ### Nginx Is Displaying a 502 Bad Gateway Error Instead of the Django Application
 
