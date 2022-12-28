@@ -2,9 +2,9 @@
 <br>
 
   ### We need to open up our firewall to normal traffic on port 80
-  * `sudo ufw allow 'Nginx Full'` 
+  *     sudo ufw allow 'Nginx Full'
   ### Create gunicorn service file & start
-  * `sudo nano etc/systemd/system/{name}.service`
+  *     sudo nano etc/systemd/system/{name}.service
   * Wrire code in the etc/systemd/system/{name_file}.service:
         
         [Unit]
@@ -19,11 +19,11 @@
         WantedBy=multi-user.target
 
   * venv | `pip install gunicorn`
-  * `sudo systemctl enable {name}.service`
-  * `sudo systemctl start {name}.service`
-  * `sudo systemctl status {name}.service`
+  *     sudo systemctl enable {name}.service
+  *     sudo systemctl start {name}.service
+  *     sudo systemctl status {name}.service
   ### Create nginx file & start
-  * `sudo nano etc/nginx/sites-available/{name_file}`
+  *     sudo nano etc/nginx/sites-available/{name_file}
   * Wrire code in the etc/nginx/sites-available/{name_file}
      
         server {
@@ -46,26 +46,26 @@
            }
         }
      
-   * `sudo ln -s /etc/nginx/sites-available/{name} /etc/nginx/sites-enabled`
-   * `sudo systemctl restart nginx.service`
+   *     sudo ln -s /etc/nginx/sites-available/{name} /etc/nginx/sites-enabled
+   *     sudo systemctl restart nginx.service
 
 If you change gunicorn systemd service file, reload the daemon and restart the process by typing:
 
- * `sudo systemctl daemon-reload`
- * `sudo systemctl restart gunicorn`
+ *     sudo systemctl daemon-reload
+ *     sudo systemctl restart gunicorn
  
 <br>
 
 If you change the Nginx server block configuration, test the configuration and then Nginx by typing:
 
- * `sudo nginx -t && sudo systemctl restart nginx`
+ *     sudo nginx -t && sudo systemctl restart nginx
 
 Checking Logs
 
- * `sudo journalctl -u gunicorn`
- * `sudo systemctl status gunicorn`
- * `sudo nginx -t`
- * `sudo tail -F /var/log/nginx/error.log`
+ *     sudo journalctl -u gunicorn
+ *     sudo systemctl status gunicorn
+ *     sudo nginx -t
+ *     sudo tail -F /var/log/nginx/error.log
 
 
 More: https://www.digitalocean.com/community/tutorials/how-to-set-up-django-with-postgres-nginx-and-gunicorn-on-ubuntu-16-04
