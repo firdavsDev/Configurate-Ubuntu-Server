@@ -49,23 +49,24 @@
    *     sudo ln -s /etc/nginx/sites-available/{name} /etc/nginx/sites-enabled
    *     sudo systemctl restart nginx.service
 
-If you change gunicorn systemd service file, reload the daemon and restart the process by typing:
+### If you change gunicorn systemd service file, reload the daemon and restart the process by typing:
 
  *     sudo systemctl daemon-reload
  *     sudo systemctl restart gunicorn
  
-<br>
 
-If you change the Nginx server block configuration, test the configuration and then Nginx by typing:
+### If you change the Nginx server block configuration, test the configuration and then Nginx by typing:
 
  *     sudo nginx -t && sudo systemctl restart nginx
 
-Checking Logs
+### Checking Logs
 
  *     sudo journalctl -u gunicorn
  *     sudo systemctl status gunicorn
  *     sudo nginx -t
- *     sudo tail -F /var/log/nginx/error.log
 
+### Nginx Is Displaying a 502 Bad Gateway Error Instead of the Django Application
+
+  *     sudo tail -F /var/log/nginx/error.log
 
 More: https://www.digitalocean.com/community/tutorials/how-to-set-up-django-with-postgres-nginx-and-gunicorn-on-ubuntu-16-04
