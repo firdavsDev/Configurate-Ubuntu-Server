@@ -1,5 +1,6 @@
 # Deploy Django project to Ubuntu Servers
 <br>
+
   ### We need to open up our firewall to normal traffic on port 80
   * `sudo ufw allow 'Nginx Full'` 
   ### Create gunicorn service file & start
