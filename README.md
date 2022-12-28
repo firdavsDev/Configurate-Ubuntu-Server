@@ -1,6 +1,4 @@
 # Deploy Django project to Ubuntu Servers
-More: https://www.digitalocean.com/community/tutorials/how-to-set-up-django-with-postgres-nginx-and-gunicorn-on-ubuntu-16-04
-<br>
 <br>
   ### We need to open up our firewall to normal traffic on port 80
   * `sudo ufw allow 'Nginx Full'` 
@@ -68,3 +66,5 @@ Checking Logs
  * `sudo nginx -t`
  * `sudo tail -F /var/log/nginx/error.log`
 
+
+More: https://www.digitalocean.com/community/tutorials/how-to-set-up-django-with-postgres-nginx-and-gunicorn-on-ubuntu-16-04
