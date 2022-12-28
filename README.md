@@ -25,7 +25,7 @@ More: https://www.digitalocean.com/community/tutorials/how-to-set-up-django-with
         server {
      
            server_name {ip_addres};
-           listen 8000;
+           listen 80;
            client_max_body_size 20M;
 
            location /static/ {
