@@ -78,6 +78,6 @@
 
 ### Nginx Is Displaying a 502 Bad Gateway Error Instead of the Django Application
 
-  *     sudo tail -F /var/log/nginx/error.log
+  *     sudo tail -F /var/log/nginx-error.log
 
 More: https://www.digitalocean.com/community/tutorials/how-to-set-up-django-with-postgres-nginx-and-gunicorn-on-ubuntu-16-04
