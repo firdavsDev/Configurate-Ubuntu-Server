@@ -4,8 +4,8 @@
   ### We need to open up our firewall to normal traffic on port 80
   *     sudo ufw allow 'Nginx Full'
   ### Create gunicorn service file & start
-  *     sudo nano etc/systemd/system/{name}.service
-  * Wrire code in the etc/systemd/system/{name_file}.service:
+  *     sudo nano /etc/systemd/system/{name}.service
+  * Wrire code in the /etc/systemd/system/{name_file}.service:
         
         [Unit]
         Description={some info about project}
@@ -23,8 +23,8 @@
   *     sudo systemctl start {name}.service
   *     sudo systemctl status {name}.service
   ### Create nginx file & start
-  *     sudo nano etc/nginx/sites-available/{name_file}
-  * Wrire code in the etc/nginx/sites-available/{name_file}
+  *     sudo nano /etc/nginx/sites-available/{name_file}
+  * Wrire code in the /etc/nginx/sites-available/{name_file}
      
         server {
      
