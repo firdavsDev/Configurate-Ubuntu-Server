@@ -30,7 +30,7 @@
      
            server_name {ip_addres};
            listen 80;
-           client_max_body_size 20M;
+           #client_max_body_size 20M;
            keepalive_timeout 5;
            client_max_body_size 4G;
 
